@@ -1,0 +1,19 @@
+﻿{
+  "FirstName": "Nikola",
+  "LastName": "Jokic",
+  "Password": "15123456",
+  "Address": "Moon Street",
+  "City": "New York",
+  "MobilePhone": "555555555",
+  "Zip": "00000",
+  "AlreadyRegisteredEmail": "test@test.com",
+  "InvalidEmailFormat": "test",
+  "Email": "test@test.com",
+  "OrderReference": "1234567",
+  "Message": "Hello, this is test",
+  "Query": "dress",
+  "PartialQuery": "dre",
+  "CapsQuery": "DRESS",
+  "NoResultsQuery": "d"
+
+}
