@@ -42,7 +42,7 @@ namespace Selenium.PageObjects
         private IWebElement SignInError => driver.FindElement(By.XPath("//*[@id='center_column']/div[1]/ol/li"));
         private IWebElement ExistingEmail => driver.FindElement(By.XPath("//*[@id='create_account_error']/ol/li"));
 
-        // Actions
+        // Action
 
         public IWebElement AccountButton() => CreateAnAccountButton;
         public IWebElement HomeSignInBtn() => HomeSignInButton;
@@ -51,20 +51,20 @@ namespace Selenium.PageObjects
 
         public void PersonalInfo()
         {
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             TitleRadioButton.Click();
-            FirstName.SendKeys(ExtractUserData().FirstName);
-            LastName.SendKeys(ExtractUserData().LastName);
-            Password.SendKeys(ExtractUserData().Password);
+            FirstName.SendKeys(GetUserData().FirstName);
+            LastName.SendKeys(GetUserData().LastName);
+            Password.SendKeys(GetUserData().Password);
             Date.Click();
             Month.Click();
             Year.Click();
-            Address.SendKeys(ExtractUserData().Address);
-            City.SendKeys(ExtractUserData().City);
+            Address.SendKeys(GetUserData().Address);
+            City.SendKeys(GetUserData().City);
             CountryDropdown.Click();
             StateDropdown.Click();
-            Zip.SendKeys(ExtractUserData().Zip);
-            MobilePhone.SendKeys(ExtractUserData().MobilePhone);
+            Zip.SendKeys(GetUserData().Zip);
+            MobilePhone.SendKeys(GetUserData().MobilePhone);
         }
 
         public IWebElement RegisterBtn() => RegisterButton;
@@ -96,7 +96,7 @@ namespace Selenium.PageObjects
         public IWebElement ForgotPassPageValidation() => ForgotPasswordPage;
         public IWebElement ExistingEmailErrorValidation()
         {
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(7));
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             IWebElement error = wait.Until(driver => ExistingEmail);
             return error;
         }

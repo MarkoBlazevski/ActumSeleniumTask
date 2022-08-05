@@ -107,7 +107,7 @@ namespace Selenium.Common
         }
 
 
-        public static UserData ExtractUserData()
+        public static UserData GetUserData()
         {
             string userDataJson = "UserData.json";
             string jsonString = File.ReadAllText(userDataJson);
@@ -115,12 +115,13 @@ namespace Selenium.Common
         }
 
 
+        // Capturing screenshot
         public MediaEntityModelProvider CaptureScreenShot(IWebDriver driver, string screenshotName)
         {
             ITakesScreenshot takesScreenshot = (ITakesScreenshot)driver;
             var screenShot = takesScreenshot.GetScreenshot().AsBase64EncodedString; // .SaveAsFile if you want to save in file
 
-            return MediaEntityBuilder.CreateScreenCaptureFromBase64String(screenShot, screenshotName).Build();//CreateScreenCaptureFromBase64String(screenShot, screenshotName).Build();
+            return MediaEntityBuilder.CreateScreenCaptureFromBase64String(screenShot, screenshotName).Build();
         }
 
     }

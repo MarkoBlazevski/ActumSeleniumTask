@@ -43,9 +43,9 @@ namespace Selenium.Tests
 
             contactUs.ContactUs().Click();
             contactUs.DropDownCustomerService().Click();
-            contactUs.EmailAddress().SendKeys(ExtractUserData().InvalidEmailFormat);
-            contactUs.orderReference().SendKeys(ExtractUserData().OrderReference);
-            contactUs.message().SendKeys(ExtractUserData().Message);
+            contactUs.EmailAddress().SendKeys(GetUserData().InvalidEmailFormat);
+            contactUs.orderReference().SendKeys(GetUserData().OrderReference);
+            contactUs.message().SendKeys(GetUserData().Message);
             contactUs.SendButton().Click();
 
             Assert.That(contactUs.IvalidEmailAddressValidation().Text, Is.EqualTo(ErrorMessages.InvalidEmail));
@@ -81,8 +81,8 @@ namespace Selenium.Tests
             ContactUsPage contactUs = new ContactUsPage(GetDriver());
 
             contactUs.ContactUs().Click();
-            contactUs.EmailAddress().SendKeys(ExtractUserData().AlreadyRegisteredEmail);
-            contactUs.orderReference().SendKeys(ExtractUserData().OrderReference);
+            contactUs.EmailAddress().SendKeys(GetUserData().AlreadyRegisteredEmail);
+            contactUs.orderReference().SendKeys(GetUserData().OrderReference);
             contactUs.SendButton().Click();
 
             Assert.That(contactUs.BlankMessageValidation().Text, Is.EqualTo(ErrorMessages.BlankMessageError));

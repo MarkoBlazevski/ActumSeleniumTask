@@ -41,9 +41,9 @@ namespace Selenium.PageObjects
 
         public void Credentials()
         {
-            Email.SendKeys(ExtractUserData().Email);
-            OrderRef.SendKeys(ExtractUserData().OrderReference);
-            Message.SendKeys(ExtractUserData().Message);
+            Email.SendKeys(GetUserData().Email);
+            OrderRef.SendKeys(GetUserData().OrderReference);
+            Message.SendKeys(GetUserData().Message);
         }
 
         //Validations

@@ -28,7 +28,7 @@ namespace Selenium.Tests
             SignInPage signIn = new SignInPage(GetDriver());
 
             signIn.HomeSignInBtn().Click();
-            signIn.EmailCredentials().SendKeys(ExtractUserData().AlreadyRegisteredEmail);
+            signIn.EmailCredentials().SendKeys(GetUserData().AlreadyRegisteredEmail);
             signIn.CreateAccountBtn().Click();
 
             Assert.IsTrue(signIn.ExistingEmailErrorValidation().Displayed);
@@ -64,7 +64,7 @@ namespace Selenium.Tests
             SignInPage signIn = new SignInPage(GetDriver());
 
             signIn.HomeSignInBtn().Click();
-            signIn.SignInEmailCredentials().SendKeys(ExtractUserData().InvalidEmailFormat);
+            signIn.SignInEmailCredentials().SendKeys(GetUserData().InvalidEmailFormat);
             signIn.SigninButton().Click();
 
             Assert.IsTrue(signIn.EmailAddressErrorValidation().Displayed);
@@ -77,8 +77,8 @@ namespace Selenium.Tests
             SignInPage signIn = new SignInPage(GetDriver());
 
             signIn.HomeSignInBtn().Click();
-            signIn.SignInEmailCredentials().SendKeys(ExtractUserData().AlreadyRegisteredEmail);
-            signIn.SignInPasswordCredentials().SendKeys(ExtractUserData().Password);
+            signIn.SignInEmailCredentials().SendKeys(GetUserData().AlreadyRegisteredEmail);
+            signIn.SignInPasswordCredentials().SendKeys(GetUserData().Password);
             signIn.SigninButton().Click();
 
             Assert.IsTrue(signIn.EmailAddressErrorValidation().Displayed);
@@ -91,7 +91,7 @@ namespace Selenium.Tests
             SignInPage signIn = new SignInPage(GetDriver());
 
             signIn.HomeSignInBtn().Click();
-            signIn.SignInEmailCredentials().SendKeys(ExtractUserData().AlreadyRegisteredEmail);
+            signIn.SignInEmailCredentials().SendKeys(GetUserData().AlreadyRegisteredEmail);
             signIn.SigninButton().Click();
 
             Assert.IsTrue(signIn.EmailAddressErrorValidation().Displayed);

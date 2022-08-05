@@ -13,7 +13,7 @@ namespace Selenium.Tests
         {
             HomePage homePage = new HomePage(GetDriver());
 
-            homePage.GetSearchBox().SendKeys(ExtractUserData().Query);
+            homePage.GetSearchBox().SendKeys(GetUserData().Query);
             homePage.SearchBtn().Click();
 
             Assert.IsTrue(homePage.SearchResult().Displayed);
@@ -34,7 +34,7 @@ namespace Selenium.Tests
         {
             HomePage homePage = new HomePage(GetDriver());
 
-            homePage.GetSearchBox().SendKeys(ExtractUserData().PartialQuery);
+            homePage.GetSearchBox().SendKeys(GetUserData().PartialQuery);
 
             Assert.IsNotNull(homePage.HintDropdownMenuValidation());
         }
@@ -44,7 +44,7 @@ namespace Selenium.Tests
         {
             HomePage homePage = new HomePage(GetDriver());
 
-            homePage.GetSearchBox().SendKeys(ExtractUserData().NoResultsQuery);
+            homePage.GetSearchBox().SendKeys(GetUserData().NoResultsQuery);
             homePage.SearchBtn().Click();
 
             Assert.IsTrue(homePage.NoResultsFoundWarningMessage().Displayed);
@@ -55,7 +55,7 @@ namespace Selenium.Tests
         {
             HomePage homePage = new HomePage(GetDriver());
 
-            homePage.GetSearchBox().SendKeys(ExtractUserData().CapsQuery);
+            homePage.GetSearchBox().SendKeys(GetUserData().CapsQuery);
             homePage.SearchBtn().Click();
 
             Assert.IsTrue(homePage.SearchResult().Displayed);
