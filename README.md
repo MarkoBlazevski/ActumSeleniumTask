@@ -10,11 +10,11 @@ For running tests from terminal first you need to navigate to project root.
 Terminal commands:
 
 To run test cases with specific test tag use this command
-:point_down:
-dotnet test "ProjectName" --filter TestCategory="tagName"
+:point_right:
+dotnet test "ProjectName" --filter TestCategory=TagName
 
 To run all tests 
-:point_down:
+:point_right:
 dotnet test --filter Name~TestName
 
 Enjoy!
