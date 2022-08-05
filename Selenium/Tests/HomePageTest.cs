@@ -36,7 +36,7 @@ namespace Selenium.Tests
 
             homePage.GetSearchBox().SendKeys(GetUserData().PartialQuery);
 
-            Assert.IsNotNull(homePage.HintDropdownMenuValidation());
+            Assert.IsTrue(homePage.HintDropdownMenuValidation().Displayed);
         }
 
         [Test, Category("Smoke")]
