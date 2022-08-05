@@ -51,7 +51,7 @@ namespace Selenium.PageObjects
 
         public void PersonalInfo()
         {
-            //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             TitleRadioButton.Click();
             FirstName.SendKeys(GetUserData().FirstName);
             LastName.SendKeys(GetUserData().LastName);

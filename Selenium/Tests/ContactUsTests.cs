@@ -1,6 +1,5 @@
 ﻿using NUnit.Framework;
 using Selenium.Common;
-using Selenium.Models;
 using Selenium.PageObjects;
 using Selenium.Utilities;
 

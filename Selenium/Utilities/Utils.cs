@@ -1,7 +1,4 @@
-﻿using Selenium.Models;
-using System.Text.Json;
-
-namespace Selenium.Utilities
+﻿namespace Selenium.Utilities
 {
     public static class Utils
     {
