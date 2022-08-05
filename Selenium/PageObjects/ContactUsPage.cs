@@ -5,27 +5,30 @@ namespace Selenium.PageObjects
 {
     public class ContactUsPage : Base
     {
-        private readonly IWebDriver driver;
+        private new readonly IWebDriver driver;
 
         public ContactUsPage(IWebDriver driver)
         {
             this.driver = driver;
         }
 
+        public IWebDriver Driver => driver;
+
         //Finding elements
 
-        private IWebElement DropDownMenuCustomerService => driver.FindElement(By.XPath("//*[@id='id_contact']/option[2]"));
-        private IWebElement DropDownMenuWebmaster => driver.FindElement(By.XPath("//*[@id='id_contact']/option[3]"));
-        private IWebElement Email => driver.FindElement(By.Id("email"));
-        private IWebElement OrderRef => driver.FindElement(By.Id("id_order"));
-        private IWebElement Message => driver.FindElement(By.Id("message"));
-        private IWebElement SendBtn => driver.FindElement(By.XPath("//*[@id='submitMessage']/span"));
-        private IWebElement SuccessMessage => driver.FindElement(By.XPath("//*[@id='center_column']/p"));
-        private IWebElement EmailErrorMessage => driver.FindElement(By.XPath("//*[@id='center_column']/div/ol/li"));
-        private IWebElement SubjectErrorMessage => driver.FindElement(By.XPath("//*[@id='center_column']/div/ol/li"));
-        private IWebElement MessageErrorMessage => driver.FindElement(By.XPath("//*[@id='center_column']/div/ol/li"));
-        private IWebElement HomePageBtn => driver.FindElement(By.XPath("//*[@id='columns']/div[1]/a"));
-        private IWebElement ContactUsButton => driver.FindElement(By.Id("contact-link"));
+        private IWebElement DropDownMenuCustomerService => Driver.FindElement(By.XPath("//*[@id='id_contact']/option[2]"));
+        private IWebElement DropDownMenuWebmaster => Driver.FindElement(By.XPath("//*[@id='id_contact']/option[3]"));
+        private IWebElement Email => Driver.FindElement(By.Id("email"));
+        private IWebElement OrderRef => Driver.FindElement(By.Id("id_order"));
+        private IWebElement Message => Driver.FindElement(By.Id("message"));
+        private IWebElement SendBtn => Driver.FindElement(By.XPath("//*[@id='submitMessage']/span"));
+        private IWebElement SuccessMessage => Driver.FindElement(By.XPath("//*[@id='center_column']/p"));
+        private IWebElement EmailErrorMessage => Driver.FindElement(By.XPath("//*[@id='center_column']/div/ol/li"));
+        private IWebElement SubjectErrorMessage => Driver.FindElement(By.XPath("//*[@id='center_column']/div/ol/li"));
+        private IWebElement MessageErrorMessage => Driver.FindElement(By.XPath("//*[@id='center_column']/div/ol/li"));
+        private IWebElement HomePageBtn => Driver.FindElement(By.XPath("//*[@id='columns']/div[1]/a"));
+        private IWebElement ContactUsButton => Driver.FindElement(By.Id("contact-link"));
+
 
 
         //Actions
@@ -61,7 +64,7 @@ namespace Selenium.PageObjects
 
         public string HomePageValidation()
         {
-            return driver.Url;
+            return Driver.Url;
         }
     }
 }

@@ -7,6 +7,7 @@ namespace Selenium.Tests
     [Parallelizable(ParallelScope.Children)]
     public class SignInTests : Base
     {
+
         [Test,Category("Smoke")]
         public void CreateAnAccountTest()
         {
@@ -17,7 +18,6 @@ namespace Selenium.Tests
             signIn.CreateAccountBtn().Click();
             signIn.PersonalInfo();
             signIn.RegisterBtn().Click();
-            //signIn.Logout().Click();
 
             Assert.IsTrue(signIn.MyAccountPageValidation().Displayed);
         }

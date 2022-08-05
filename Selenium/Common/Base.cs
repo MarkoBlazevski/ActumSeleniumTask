@@ -17,6 +17,7 @@ namespace Selenium.Common
     {
         public ExtentReports extentReports;
         public ExtentTest test;
+        string? browserName; // if this value is null by default browser value is taken from AppSettings file look line 50-54
 
         //Report file
         [OneTimeSetUp]
@@ -36,8 +37,7 @@ namespace Selenium.Common
 
         }
 
-        //public IWebDriver? driver;
-        public ThreadLocal<IWebDriver> driver = new ThreadLocal<IWebDriver>();
+        public ThreadLocal<IWebDriver> driver = new ThreadLocal<IWebDriver>(); // accessing to every new driver in separate thread driver.Value
 
         [SetUp]
 
@@ -46,15 +46,12 @@ namespace Selenium.Common
             // If there is no flag for browser type in terminal take it from appConfig file
             test = extentReports.CreateTest(TestContext.CurrentContext.Test.Name);
 
-            var browserName = TestContext.Parameters["browserName"];
+            var browserName = TestContext.Parameters["browserName"]; // terminal variable
             if (browserName == null)
             {
                 browserName = ConfigurationManager.AppSettings["browser"];
             }
             InitBrowser(browserName);
-
-            // Implicit Wait 
-            //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
 
             driver.Value.Manage().Window.Maximize();
             driver.Value.Url = Settings.HomePageUrl;
@@ -65,7 +62,7 @@ namespace Selenium.Common
             return driver.Value;
         }
 
-        public void InitBrowser(string browserName)
+        public void InitBrowser(string browserName)  
         {
             switch (browserName)
             {
