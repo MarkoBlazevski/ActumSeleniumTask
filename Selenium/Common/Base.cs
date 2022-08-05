@@ -17,7 +17,6 @@ namespace Selenium.Common
     {
         public ExtentReports extentReports;
         public ExtentTest test;
-        String browserName;
 
         //Report file
         [OneTimeSetUp]
@@ -25,7 +24,7 @@ namespace Selenium.Common
         {
             string workingDirectory = Environment.CurrentDirectory;
             string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
-            String reportPath = projectDirectory + "//index.html";
+            string reportPath = projectDirectory + "//index.html";
 
             var htmlReporter = new ExtentHtmlReporter(reportPath);
             extentReports = new ExtentReports();
